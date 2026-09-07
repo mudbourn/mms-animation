@@ -1,0 +1,13 @@
+{
+  "required": false,
+  "package": "info.mudbourn.mmsanimation.mixin.cpa",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "info.mudbourn.mmsanimation.CpaMixinPlugin",
+  "client": [
+    "CarryOnCompatAnimationMixin",
+    "ForceEnableArmAnimationMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

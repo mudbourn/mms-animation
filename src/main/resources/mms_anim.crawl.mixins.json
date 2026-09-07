@@ -1,0 +1,11 @@
+{
+  "required": false,
+  "package": "info.mudbourn.mmsanimation.mixin.crawl",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "CrawlLeanSnapMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

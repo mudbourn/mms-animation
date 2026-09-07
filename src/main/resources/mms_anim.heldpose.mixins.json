@@ -1,0 +1,19 @@
+{
+  "required": false,
+  "package": "info.mudbourn.mmsanimation.mixin.heldpose",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "info.mudbourn.mmsanimation.mixin.heldpose.HeldPoseMixinGate",
+  "client": [
+    "HeldPoseAdditiveMixin",
+    "HeldPoseLegMixin",
+    "HeldPoseMixin",
+    "HeldPoseUnpauseMixin",
+    "PoseDebugAnimateEarlyMixin",
+    "PoseReleaseMixin",
+    "PoseDebugAnimateLateMixin",
+    "PoseDebugSetupMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

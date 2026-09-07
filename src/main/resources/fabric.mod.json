@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "mms_anim",
+  "version": "${version}",
+  "name": "MMS Animation",
+  "description": "The MMS pose/animation compat subsystem: held poses, lean, crawl, NEA sprint, Carry-On/EMF body capture, inspect animation and spyglass posing across DA, Better Combat and EMF.",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "info.mudbourn.mmsanimation.client.MmsAnimationClient"
+    ]
+  },
+  "mixins": [
+    "mms_anim.heldpose.mixins.json",
+    "mms_anim.lean.mixins.json",
+    "mms_anim.neasprint.mixins.json",
+    "mms_anim.cpa.mixins.json",
+    "mms_anim.inspectanim.mixins.json",
+    "mms_anim.emfcarry.mixins.json",
+    "mms_anim.crawl.mixins.json",
+    "mms_anim.spyglassfov.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*",
+    "mms_render_common": "*"
+  }
+}
