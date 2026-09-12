@@ -2,8 +2,8 @@ package info.mudbourn.mmsanimation.client;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.ModelPart;
-import traben.entity_model_features.models.animation.EMFAnimationEntityContext;
 import traben.entity_model_features.models.animation.state.EMFEntityRenderState;
+import traben.entity_model_features.models.animation.state.EMFState;
 import traben.entity_model_features.models.parts.EMFModelPartRoot;
 import traben.entity_model_features.models.parts.EMFModelPartVanilla;
 
@@ -36,7 +36,7 @@ public final class PoseDebugEmf {
             return;
         }
 
-        EMFEntityRenderState state = EMFAnimationEntityContext.getEmfState();
+        EMFEntityRenderState state = EMFState.state();
         if (state == null || state.emfEntity() == null) {
             return;
         }

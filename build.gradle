@@ -24,9 +24,9 @@ dependencies {
     // Pose-arbitration targets: held poses read Better Combat swing state, and
     // the EMF/Carry-On body-capture path binds to EMF Compat and EMF internals.
     modCompileOnly files("libs/bettercombat-fabric-3.1.0+1.21.11.jar")
-    modCompileOnly files("libs/emf_compat_core_1.21.11_1.0.0.jar")
-    modCompileOnly files("libs/entity_model_features-3.2.4-1.21.11-fabric.jar")
-    modCompileOnly files("libs/entity_texture_features_1.21.11-fabric-7.1.jar")
+    modCompileOnly files("libs/emf_compat_core_1.21.11_2.0.0.jar")
+    modCompileOnly files("libs/entity_model_features-3.3.5-1.21.11-fabric.jar")
+    modCompileOnly files("libs/entity_texture_features-7.2.1-1.21.11-fabric.jar")
 }
 
 tasks.withType(JavaCompile).configureEach {

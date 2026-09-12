@@ -7,8 +7,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import strm.emfcompat.core.EMFCompatCore;
-import traben.entity_model_features.models.animation.EMFAnimationEntityContext;
 import traben.entity_model_features.models.animation.state.EMFEntityRenderState;
+import traben.entity_model_features.models.animation.state.EMFState;
 import traben.entity_model_features.models.parts.EMFModelPartRoot;
 import traben.entity_model_features.models.parts.EMFModelPartVanilla;
 
@@ -49,7 +49,7 @@ public class HeldPoseAdditiveMixin {
 
     @Inject(method = "animate", at = @At("RETURN"))
     private void mms$addHeldPoseOverAnimation(CallbackInfo ci) {
-        EMFEntityRenderState state = EMFAnimationEntityContext.getEmfState();
+        EMFEntityRenderState state = EMFState.state();
         if (state == null || state.emfEntity() == null) {
             return;
         }

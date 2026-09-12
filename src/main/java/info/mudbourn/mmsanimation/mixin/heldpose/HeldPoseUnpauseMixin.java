@@ -6,8 +6,8 @@ import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import strm.emfcompat.core.PoseManager;
-import traben.entity_model_features.models.animation.EMFAnimationEntityContext;
 import traben.entity_model_features.models.animation.state.EMFEntityRenderState;
+import traben.entity_model_features.utils.EMFAnimationPauseHandler;
 
 import java.util.UUID;
 
@@ -21,7 +21,7 @@ import java.util.UUID;
  * survive DetailedAnimations. That fixes who writes last, but not whether the
  * animation runs at all. EMF Compat's Better Combat addon also decides, every
  * frame, whether the CEM animation is paused — in
- * {@code EMFAnimationEntityContextMixin}:
+ * {@code EMFAnimationPauseHandlerMixin}:
  *
  * <pre>{@code
  * return AttackPauseOverride.isUnpaused(uuid)
@@ -45,11 +45,11 @@ import java.util.UUID;
  * running, and it defers to {@code entitiesPaused}, which is EMF's explicit
  * user-facing pause and not ours to override.
  */
-@Mixin(value = EMFAnimationEntityContext.class, remap = false)
+@Mixin(value = EMFAnimationPauseHandler.class, remap = false)
 public class HeldPoseUnpauseMixin {
 
-    @ModifyReturnValue(method = "isEntityAnimPaused", at = @At("RETURN"))
-    private static boolean mms$unpauseWhileHoldingPosedWeapon(boolean original) {
+    @ModifyReturnValue(method = "shouldAnimationsPause", at = @At("RETURN"))
+    private static boolean mms$unpauseWhileHoldingPosedWeapon(boolean original, EMFEntityRenderState state) {
         // Only ever un-pause. If EMF already intends to animate, leave it alone.
         if (!original) {
             return false;
@@ -58,7 +58,6 @@ public class HeldPoseUnpauseMixin {
             return original;
         }
 
-        EMFEntityRenderState state = EMFAnimationEntityContext.getEmfState();
         if (state == null || state.emfEntity() == null) {
             return original;
         }
@@ -70,7 +69,7 @@ public class HeldPoseUnpauseMixin {
 
         // EMF's own explicit pause set outranks this. Matching the addon here
         // matters: overriding it would make a deliberately frozen entity animate.
-        if (EMFAnimationEntityContext.entitiesPaused.contains(uuid)) {
+        if (EMFAnimationPauseHandler.entitiesPaused.contains(uuid)) {
             return original;
         }
 
