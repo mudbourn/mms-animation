@@ -4,7 +4,9 @@
   "compatibilityLevel": "JAVA_21",
   "plugin": "info.mudbourn.mmsanimation.mixin.neasprint.NeaSprintGate",
   "client": [
-    "NeaSprintMixin"
+    "NeaSprintEnterMixin",
+    "NeaSprintExitMixin",
+    "NeaSprintSuppressMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -8,8 +8,11 @@ import java.util.Set;
 
 /**
  * Gates the sprint fix on both mods it sits between: Not Enough Animations owns the
- * target class, and EMF Compat: NEA owns the merged method being patched. With
- * either absent there is nothing to inject into and the mixin would fail to apply.
+ * {@code applyAnimations} that the enter/exit mixins bracket, and EMF Compat: NEA owns
+ * the RETURN handler that bracket neutralises the sprint read for. With the addon
+ * absent there is no handler to bracket and the guard would never matter; with NEA
+ * absent there is no class to mix into. The {@code isSprinting} suppressor rides the
+ * same gate so no global injector is added when the feature is inactive.
  */
 public class NeaSprintGate implements IMixinConfigPlugin {
 
