@@ -17,7 +17,8 @@
     "mms_anim.cpa.mixins.json",
     "mms_anim.inspectanim.mixins.json",
     "mms_anim.crawl.mixins.json",
-    "mms_anim.spyglassfov.mixins.json"
+    "mms_anim.spyglassfov.mixins.json",
+    "mms_anim.headhide.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.16.0",
