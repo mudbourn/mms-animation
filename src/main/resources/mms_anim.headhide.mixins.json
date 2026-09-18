@@ -1,0 +1,11 @@
+{
+  "required": false,
+  "package": "info.mudbourn.mmsanimation.mixin.headhide",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "HeadEquipmentHideMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
